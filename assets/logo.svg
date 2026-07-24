@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+  <!-- Hanging Nail / Point -->
+  <circle cx="20" cy="8" r="3" fill="#e00712" />
+  
+  <!-- Hanging Wires -->
+  <path d="M20 8 L10 18 M20 8 L30 18" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+  
+  <!-- Outer Frame -->
+  <rect x="7" y="18" width="26" height="18" rx="2" fill="none" stroke="#e00712" stroke-width="3" />
+  
+  <!-- Inner Art Highlight (Sleek minimalist dot inside frame) -->
+  <circle cx="20" cy="27" r="2" fill="#ffffff" />
+</svg>
