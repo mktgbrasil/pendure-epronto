@@ -204,9 +204,12 @@ const pricing = {
     },
     sizeFactor: {
         A3: 1.0,       // 30x42 cm
-        medium: 1.8,   // 40x60 cm
-        large: 2.6,    // 50x70 cm
-        xlarge: 3.8    // 60x90 cm
+        medium: 1.33,  // 40x60 cm
+        large: 1.78,   // 50x70 cm
+        xlarge: 2.33,  // 60x90 cm
+        sz80x120: 3.6, // 80x120 cm
+        sz100x150: 4.9, // 100x150 cm
+        sz120x180: 6.6 // 120x180 cm
     },
     framePrice: {
         sem_moldura: 0,
@@ -222,10 +225,13 @@ const labels = {
         papel: 'Papel Fotográfico Fine Art'
     },
     size: {
-        A3: 'A3 (30x42cm)',
+        A3: '30x42 cm',
         medium: '40x60 cm',
         large: '50x70 cm',
-        xlarge: '60x90 cm'
+        xlarge: '60x90 cm',
+        sz80x120: '80x120 cm',
+        sz100x150: '100x150 cm',
+        sz120x180: '120x180 cm (Painel)'
     },
     frame: {
         sem_moldura: 'Sem Moldura (Bordas Lapidadas)',

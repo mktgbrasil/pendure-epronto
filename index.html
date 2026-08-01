@@ -314,11 +314,13 @@
                         <span>2. Escolha o Tamanho na Parede:</span>
                     </div>
                     <div class="ia-buttons-row">
-                        <button class="ia-btn-opt" data-type="size" data-val="30x42" data-w="14%" data-h="18%" data-label="30 x 42 cm" data-price="180" onclick="setIASize(this)">30x42 cm (Compacto)</button>
-                        <button class="ia-btn-opt" data-type="size" data-val="40x60" data-w="18%" data-h="24%" data-label="40 x 60 cm" data-price="240" onclick="setIASize(this)">40x60 cm (Médio)</button>
-                        <button class="ia-btn-opt active" data-type="size" data-val="50x70" data-w="22%" data-h="30%" data-label="50 x 70 cm" data-price="320" onclick="setIASize(this)">50x70 cm (Destaque)</button>
-                        <button class="ia-btn-opt" data-type="size" data-val="60x90" data-w="26%" data-h="36%" data-label="60 x 90 cm" data-price="420" onclick="setIASize(this)">60x90 cm (Extra Grande)</button>
-                        <button class="ia-btn-opt" data-type="size" data-val="100x70" data-w="36%" data-h="25%" data-label="100 x 70 cm" data-price="490" onclick="setIASize(this)">100x70 cm (Panorâmico)</button>
+                        <button class="ia-btn-opt" data-type="size" data-val="30x42" data-w="14%" data-h="18%" data-label="30 x 42 cm" data-price="180" onclick="setIASize(this)">30x42 cm</button>
+                        <button class="ia-btn-opt" data-type="size" data-val="40x60" data-w="18%" data-h="24%" data-label="40 x 60 cm" data-price="240" onclick="setIASize(this)">40x60 cm</button>
+                        <button class="ia-btn-opt active" data-type="size" data-val="50x70" data-w="22%" data-h="30%" data-label="50 x 70 cm" data-price="320" onclick="setIASize(this)">50x70 cm (Padrão)</button>
+                        <button class="ia-btn-opt" data-type="size" data-val="60x90" data-w="26%" data-h="36%" data-label="60 x 90 cm" data-price="420" onclick="setIASize(this)">60x90 cm</button>
+                        <button class="ia-btn-opt" data-type="size" data-val="80x120" data-w="34%" data-h="46%" data-label="80 x 120 cm" data-price="650" onclick="setIASize(this)">80x120 cm (Grande)</button>
+                        <button class="ia-btn-opt" data-type="size" data-val="100x150" data-w="42%" data-h="58%" data-label="100 x 150 cm" data-price="890" onclick="setIASize(this)">100x150 cm (Gigante)</button>
+                        <button class="ia-btn-opt" data-type="size" data-val="120x180" data-w="50%" data-h="68%" data-label="120 x 180 cm" data-price="1200" onclick="setIASize(this)">120x180 cm (Painel Luxo)</button>
                     </div>
                 </div>
 
@@ -351,18 +353,23 @@
     <section id="galeria" class="gallery-section">
         <div class="section-header">
             <div class="header-left">
-                <h2>Nossos Quadros e Coleções</h2>
-                <p>Navegue por nossas artes exclusivas disponíveis para impressão digital em vidro ou tela canvas.</p>
+                <h2>Nossos Quadros e Catálogo 2025</h2>
+                <p>Navegue por nossas categorias do catálogo oficial com mais de 280 páginas de artes para impressão em vidro e canvas.</p>
             </div>
             <div class="header-right">
                 <span class="filter-label font-title">Filtro:</span>
                 <select class="category-select" id="category-select">
-                    <option value="todos">Todas as Linhas</option>
+                    <option value="todos">Todas as Linhas (Catálogo Completo)</option>
                     <option value="personalizados">Personalizados & Família</option>
-                    <option value="vidro">Impressão em Vidro</option>
-                    <option value="abstrato">Abstrato Moderno</option>
-                    <option value="natureza">Natureza Fine Art</option>
-                    <option value="minimalista">Minimalistas</option>
+                    <option value="religioso">Religioso & Leão de Judá</option>
+                    <option value="abstrato">Abstrato, Bauhaus & Árvore</option>
+                    <option value="animais">Fauna & Animais (Leões, Elefantes, Cavalos)</option>
+                    <option value="profissoes">Profissões (Advocacia, Medicina, Estética)</option>
+                    <option value="gastronomia">Gastronomia & Restaurante (Café, Bebidas, Churrasco)</option>
+                    <option value="infantil">Infantil & Quarto de Bebê</option>
+                    <option value="fashion">Fashion & Estilo</option>
+                    <option value="frases">Frases & Motivacional</option>
+                    <option value="natureza">Paisagens, Mar & Flores</option>
                 </select>
             </div>
         </div>
@@ -372,10 +379,15 @@
             <div class="tabs-bar" id="tabs-bar">
                 <button class="tab-btn active" data-filter="todos">Mais Procurados</button>
                 <button class="tab-btn" data-filter="personalizados">Personalizados & Família</button>
-                <button class="tab-btn" data-filter="vidro">Destaques em Vidro</button>
+                <button class="tab-btn" data-filter="religioso">Religioso & Fé</button>
                 <button class="tab-btn" data-filter="abstrato">Abstratos</button>
+                <button class="tab-btn" data-filter="animais">Fauna & Animais</button>
+                <button class="tab-btn" data-filter="profissoes">Profissões</button>
+                <button class="tab-btn" data-filter="gastronomia">Gastronomia & Bares</button>
+                <button class="tab-btn" data-filter="infantil">Infantil</button>
+                <button class="tab-btn" data-filter="fashion">Fashion</button>
+                <button class="tab-btn" data-filter="frases">Frases</button>
                 <button class="tab-btn" data-filter="natureza">Natureza</button>
-                <button class="tab-btn" data-filter="minimalista">Minimalistas</button>
             </div>
         </div>
 
