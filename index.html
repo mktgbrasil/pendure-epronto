@@ -70,8 +70,8 @@
                     Fábrica de quadros personalizados em Embu das Artes, SP. Transformamos suas fotos de família, recordações de bebês recém-nascidos e memórias afetivas em peças decorativas premium em vidro temperado ou canvas Fine Art.
                 </p>
                 <div class="hero-actions">
-                    <a href="https://wa.me/5511968126432?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20um%20quadro%20personalizado." target="_blank" class="btn-cta btn-primary">
-                        Enviar Foto / Medidas
+                    <a href="#simulador-ia" class="btn-cta btn-primary">
+                        📸 Simular Minha Foto na Sala
                     </a>
                     <a href="#galeria" class="btn-cta btn-secondary">
                         Ver Coleções
@@ -222,6 +222,104 @@
                     <h3 style="font-size: 16px;">Instalação com Limpeza</h3>
                     <p style="font-size: 12.5px;">Realizamos a entrega cuidadosa e a fixação técnica alinhada na sua parede sem sujeira (Grande SP e Embu das Artes).</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE AI ROOM SIMULATOR (SIMULADOR IA DE PAREDE) -->
+    <section id="simulador-ia" class="ia-simulator-section">
+        <div class="ia-simulator-container">
+            
+            <!-- Left Column: Living Room Wall Viewport with Sofa -->
+            <div class="ia-room-viewport">
+                <img src="assets/living_room_wall.jpg" alt="Sala de Estar com Sofá - Simulador de Quadros" class="ia-room-bg">
+                
+                <!-- Dynamic Wall Frame above Sofa -->
+                <div class="ia-frame-container frame-sem material-vidro" id="ia-wall-frame" style="width: 38%; height: 38%;">
+                    <img src="assets/custom_family.jpg" alt="Sua Foto na Parede" class="ia-frame-img" id="ia-preview-img">
+                    <div class="ia-glass-shine"></div>
+                    <span class="ia-size-badge" id="ia-size-badge">Tamanho Real: 50 x 70 cm</span>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive Controls -->
+            <div class="ia-controls-panel">
+                <span class="feature-tag" style="margin-bottom: 8px; display: inline-block;">TECNOLOGIA DE PROJEÇÃO IA</span>
+                <h2 class="ia-controls-title">Simulador IA da Sua Foto na Sala</h2>
+                <p class="ia-controls-subtitle">Envie a sua própria foto e veja instantaneamente o tamanho e o acabamento perfeito na parede sobre o sofá!</p>
+                
+                <!-- Upload Box -->
+                <div class="ia-upload-box">
+                    <label for="ia-photo-upload" class="ia-upload-btn-label">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        📸 Carregar Minha Foto Pessoal
+                    </label>
+                    <input type="file" id="ia-photo-upload" accept="image/*" style="display: none;">
+                    
+                    <div class="ia-preset-thumbs">
+                        <span class="ia-preset-label">Ou teste com exemplo:</span>
+                        <button class="ia-thumb-btn active" onclick="setIAPreviewPhoto('assets/custom_family.jpg', this)">
+                            <img src="assets/custom_family.jpg" alt="Família">
+                        </button>
+                        <button class="ia-thumb-btn" onclick="setIAPreviewPhoto('assets/custom_baby.jpg', this)">
+                            <img src="assets/custom_baby.jpg" alt="Bebê">
+                        </button>
+                        <button class="ia-thumb-btn" onclick="setIAPreviewPhoto('assets/foto_13.jpg', this)">
+                            <img src="assets/foto_13.jpg" alt="Árvore da Vida">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Material Selector -->
+                <div class="ia-option-group">
+                    <div class="ia-option-title">
+                        <span>1. Escolha o Acabamento:</span>
+                    </div>
+                    <div class="ia-buttons-row">
+                        <button class="ia-btn-opt active" data-type="material" data-val="vidro" onclick="setIAMaterial('vidro', this)">✨ Vidro Temperado (Com Brilho)</button>
+                        <button class="ia-btn-opt" data-type="material" data-val="canvas" onclick="setIAMaterial('canvas', this)">🎨 Tela Canvas Fine Art</button>
+                    </div>
+                </div>
+
+                <!-- Size Selector -->
+                <div class="ia-option-group">
+                    <div class="ia-option-title">
+                        <span>2. Escolha o Tamanho na Parede:</span>
+                    </div>
+                    <div class="ia-buttons-row">
+                        <button class="ia-btn-opt" data-type="size" data-val="30x42" data-w="24%" data-h="24%" data-label="30 x 42 cm" data-price="180" onclick="setIASize(this)">30x42 cm (Compacto)</button>
+                        <button class="ia-btn-opt" data-type="size" data-val="40x60" data-w="30%" data-h="30%" data-label="40 x 60 cm" data-price="240" onclick="setIASize(this)">40x60 cm (Médio)</button>
+                        <button class="ia-btn-opt active" data-type="size" data-val="50x70" data-w="38%" data-h="38%" data-label="50 x 70 cm" data-price="320" onclick="setIASize(this)">50x70 cm (Destaque)</button>
+                        <button class="ia-btn-opt" data-type="size" data-val="60x90" data-w="46%" data-h="46%" data-label="60 x 90 cm" data-price="420" onclick="setIASize(this)">60x90 cm (Extra Grande)</button>
+                        <button class="ia-btn-opt" data-type="size" data-val="100x70" data-w="54%" data-h="38%" data-label="100 x 70 cm" data-price="490" onclick="setIASize(this)">100x70 cm (Panorâmico)</button>
+                    </div>
+                </div>
+
+                <!-- Frame Finish Selector -->
+                <div class="ia-option-group">
+                    <div class="ia-option-title">
+                        <span>3. Estilo de Moldura:</span>
+                    </div>
+                    <div class="ia-buttons-row">
+                        <button class="ia-btn-opt active" data-type="frame" data-val="sem" data-add="0" onclick="setIAFrame('sem', this)">Sem Moldura (Puro Vidro)</button>
+                        <button class="ia-btn-opt" data-type="frame" data-val="filete" data-add="60" onclick="setIAFrame('filete', this)">Filete Preto (+R$60)</button>
+                        <button class="ia-btn-opt" data-type="frame" data-val="madeira" data-add="85" onclick="setIAFrame('madeira', this)">Madeira Freijó (+R$85)</button>
+                    </div>
+                </div>
+
+                <!-- Price and Action -->
+                <div class="price-estimate-row" style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+                    <div class="price-label">Valor Estimado do Quadro:</div>
+                    <div class="price-val" id="ia-total-price">R$ 320,00</div>
+                </div>
+
+                <button class="btn-send-whatsapp" style="width: 100%; margin-top: 16px;" onclick="sendIASimulationToWhatsApp()">
+                    💬 Encomendar Este Quadro no WhatsApp
+                </button>
             </div>
         </div>
     </section>

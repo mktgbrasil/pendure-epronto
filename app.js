@@ -381,3 +381,150 @@ Gostaria de saber o valor do frete e os prazos de entrega e instalação para mi
     
     window.open(whatsappUrl, '_blank');
 }
+
+/* ==========================================================================
+   AI ROOM SIMULATOR LOGIC (SIMULADOR IA DE PAREDE)
+   ========================================================================== */
+let currentIAMaterial = 'vidro';
+let currentIASizeLabel = '50 x 70 cm';
+let currentIABasePrice = 320;
+let currentIAFrameVal = 'sem';
+let currentIAFrameAddon = 0;
+let currentIAPhotoSource = 'custom_family.jpg';
+
+// Initialize file upload listener
+document.addEventListener('DOMContentLoaded', function() {
+    const iaPhotoUploadInput = document.getElementById('ia-photo-upload');
+    if (iaPhotoUploadInput) {
+        iaPhotoUploadInput.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (evt) {
+                    const previewImg = document.getElementById('ia-preview-img');
+                    if (previewImg) {
+                        previewImg.src = evt.target.result;
+                        currentIAPhotoSource = 'Foto Pessoal do Cliente (' + file.name + ')';
+                    }
+                    
+                    // Clear active thumbnail preset styling
+                    document.querySelectorAll('.ia-thumb-btn').forEach(btn => btn.classList.remove('active'));
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+});
+
+function setIAPreviewPhoto(imageSrc, buttonEl) {
+    const previewImg = document.getElementById('ia-preview-img');
+    if (previewImg) {
+        previewImg.src = imageSrc;
+        currentIAPhotoSource = imageSrc;
+    }
+    document.querySelectorAll('.ia-thumb-btn').forEach(btn => btn.classList.remove('active'));
+    if (buttonEl) buttonEl.classList.add('active');
+}
+
+function setIAMaterial(matVal, buttonEl) {
+    currentIAMaterial = matVal;
+    const wallFrame = document.getElementById('ia-wall-frame');
+    if (wallFrame) {
+        if (matVal === 'canvas') {
+            wallFrame.classList.add('material-canvas');
+            wallFrame.classList.remove('material-vidro');
+        } else {
+            wallFrame.classList.add('material-vidro');
+            wallFrame.classList.remove('material-canvas');
+        }
+    }
+    
+    // Toggle active state
+    if (buttonEl && buttonEl.parentElement) {
+        buttonEl.parentElement.querySelectorAll('.ia-btn-opt').forEach(btn => btn.classList.remove('active'));
+        buttonEl.classList.add('active');
+    }
+    
+    updateIATotalPrice();
+}
+
+function setIASize(buttonEl) {
+    const w = buttonEl.getAttribute('data-w');
+    const h = buttonEl.getAttribute('data-h');
+    const label = buttonEl.getAttribute('data-label');
+    const price = parseFloat(buttonEl.getAttribute('data-price'));
+    
+    currentIASizeLabel = label;
+    currentIABasePrice = price;
+    
+    const wallFrame = document.getElementById('ia-wall-frame');
+    const sizeBadge = document.getElementById('ia-size-badge');
+    
+    if (wallFrame) {
+        wallFrame.style.width = w;
+        wallFrame.style.height = h;
+    }
+    if (sizeBadge) {
+        sizeBadge.innerText = 'Tamanho Real: ' + label;
+    }
+    
+    if (buttonEl && buttonEl.parentElement) {
+        buttonEl.parentElement.querySelectorAll('.ia-btn-opt').forEach(btn => btn.classList.remove('active'));
+        buttonEl.classList.add('active');
+    }
+    
+    updateIATotalPrice();
+}
+
+function setIAFrame(frameVal, buttonEl) {
+    currentIAFrameVal = frameVal;
+    currentIAFrameAddon = parseFloat(buttonEl.getAttribute('data-add'));
+    
+    const wallFrame = document.getElementById('ia-wall-frame');
+    if (wallFrame) {
+        wallFrame.classList.remove('frame-sem', 'frame-filete', 'frame-madeira');
+        wallFrame.classList.add('frame-' + frameVal);
+    }
+    
+    if (buttonEl && buttonEl.parentElement) {
+        buttonEl.parentElement.querySelectorAll('.ia-btn-opt').forEach(btn => btn.classList.remove('active'));
+        buttonEl.classList.add('active');
+    }
+    
+    updateIATotalPrice();
+}
+
+function updateIATotalPrice() {
+    let materialMultiplier = currentIAMaterial === 'vidro' ? 1.0 : 0.85;
+    let total = (currentIABasePrice * materialMultiplier) + currentIAFrameAddon;
+    
+    const totalPriceEl = document.getElementById('ia-total-price');
+    if (totalPriceEl) {
+        totalPriceEl.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    }
+}
+
+function sendIASimulationToWhatsApp() {
+    const materialText = currentIAMaterial === 'vidro' ? 'Vidro Temperado 4mm (Com Brilho)' : 'Tela Canvas Fine Art (Texturizada)';
+    let frameText = 'Sem Moldura (Vidro Puro)';
+    if (currentIAFrameVal === 'filete') frameText = 'Filete Preto';
+    if (currentIAFrameVal === 'madeira') frameText = 'Madeira Freijó';
+    
+    const totalPriceEl = document.getElementById('ia-total-price');
+    const priceText = totalPriceEl ? totalPriceEl.innerText : 'R$ 320,00';
+    
+    const message = `Olá Pendure e Pronto! Fiz uma simulação da MINHA FOTO no Simulador IA da sala no site e gostaria de encomendar o meu quadro:
+
+• *Foto:* ${currentIAPhotoSource}
+• *Acabamento:* ${materialText}
+• *Tamanho na Parede:* ${currentIASizeLabel}
+• *Moldura:* ${frameText}
+• *Valor Estimado:* ${priceText}
+
+Vou enviar a imagem original em alta resolução aqui pelo WhatsApp para vocês prepararem a simulação final e o envio!`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/5511968126432?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+}
