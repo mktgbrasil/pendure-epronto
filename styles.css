@@ -1775,7 +1775,7 @@ img {
     align-items: center;
     justify-content: center;
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    background-color: #ffffff;
+    background-color: #111111;
     overflow: hidden;
     cursor: grab;
     user-select: none;

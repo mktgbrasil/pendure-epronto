@@ -402,7 +402,37 @@ let startMouseY = 0;
 
 function applyIAPhotoTransform() {
     const previewImg = document.getElementById('ia-preview-img');
-    if (previewImg) {
+    const container = document.getElementById('ia-wall-frame');
+    
+    if (previewImg && container) {
+        const cRect = container.getBoundingClientRect();
+        const imgNW = previewImg.naturalWidth || cRect.width;
+        const imgNH = previewImg.naturalHeight || cRect.height;
+        
+        if (cRect.width === 0 || cRect.height === 0) return;
+
+        const containerRatio = cRect.width / cRect.height;
+        const imgRatio = imgNW / imgNH;
+        
+        let renderedImgWidth, renderedImgHeight;
+        
+        if (imgRatio > containerRatio) {
+            // Image is wider than container
+            renderedImgHeight = cRect.height * photoScale;
+            renderedImgWidth = renderedImgHeight * imgRatio;
+        } else {
+            // Image is taller than container
+            renderedImgWidth = cRect.width * photoScale;
+            renderedImgHeight = renderedImgWidth / imgRatio;
+        }
+        
+        const maxDragX = Math.max(0, (renderedImgWidth - cRect.width) / 2);
+        const maxDragY = Math.max(0, (renderedImgHeight - cRect.height) / 2);
+        
+        // Clamp position within exact visual bounds
+        photoPosX = Math.max(-maxDragX, Math.min(maxDragX, photoPosX));
+        photoPosY = Math.max(-maxDragY, Math.min(maxDragY, photoPosY));
+        
         previewImg.style.transform = `translate(${photoPosX}px, ${photoPosY}px) scale(${photoScale})`;
     }
 }
