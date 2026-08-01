@@ -551,8 +551,18 @@ function setIAPreviewPhoto(imageSrc, buttonEl) {
         currentIAPhotoSource = imageSrc;
         resetIAPhotoTransform();
     }
-    document.querySelectorAll('.ia-thumb-btn').forEach(btn => btn.classList.remove('active'));
-    if (buttonEl) buttonEl.classList.add('active');
+    
+    // Safely update preset thumbs if clicked from thumbnail list
+    if (buttonEl && buttonEl.classList && buttonEl.classList.contains('ia-thumb-btn')) {
+        document.querySelectorAll('.ia-thumb-btn').forEach(btn => btn.classList.remove('active'));
+        buttonEl.classList.add('active');
+    }
+    
+    // Smooth scroll to the AI simulator section
+    const simSection = document.getElementById('simulador-ia');
+    if (simSection) {
+        simSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 }
 
 function setIAMaterial(matVal, buttonEl) {
