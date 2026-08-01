@@ -1775,7 +1775,7 @@ img {
     align-items: center;
     justify-content: center;
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    background-color: #000;
+    background-color: #ffffff;
     overflow: hidden;
     cursor: grab;
     user-select: none;
@@ -1795,29 +1795,6 @@ img {
     -webkit-user-drag: none;
     pointer-events: auto;
     transition: transform 0.05s linear;
-}
-
-.ia-drag-hint {
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(4px);
-    color: #fff;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 12px;
-    pointer-events: none;
-    opacity: 0.85;
-    transition: opacity 0.3s ease;
-    white-space: nowrap;
-    z-index: 5;
-}
-
-.ia-frame-container:hover .ia-drag-hint {
-    opacity: 1;
 }
 
 /* Glass Shine Reflection Overlay */
