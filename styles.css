@@ -1767,7 +1767,7 @@ img {
 /* Wall Frame Container placed above sofa */
 .ia-frame-container {
     position: absolute;
-    top: 36%;
+    top: 38%;
     left: 50%;
     transform: translate(-50%, -50%);
     transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
