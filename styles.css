@@ -1764,6 +1764,35 @@ img {
     display: block;
 }
 
+/* Human Silhouette Scale Reference (1.70m) */
+.ia-person-silhouette {
+    position: absolute;
+    bottom: 2%;
+    left: 12%;
+    height: 60%;
+    width: 14%;
+    pointer-events: none;
+    z-index: 4;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.ia-silhouette-badge {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--text-primary);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    white-space: nowrap;
+}
+
 /* Wall Frame Container placed above sofa */
 .ia-frame-container {
     position: absolute;

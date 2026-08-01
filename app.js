@@ -523,6 +523,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+function toggleIASilhouette(buttonEl) {
+    const silhouette = document.getElementById('ia-person-silhouette');
+    if (silhouette) {
+        if (silhouette.style.display === 'none') {
+            silhouette.style.display = 'flex';
+            buttonEl.classList.add('active');
+            buttonEl.innerText = '👤 Escala Humana (1,70m): ATIVA';
+        } else {
+            silhouette.style.display = 'none';
+            buttonEl.classList.remove('active');
+            buttonEl.innerText = '👤 Escala Humana (1,70m): DESATIVADA';
+        }
+    }
+}
+
 function setIAPreviewPhoto(imageSrc, buttonEl) {
     const previewImg = document.getElementById('ia-preview-img');
     if (previewImg) {
