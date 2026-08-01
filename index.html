@@ -37,6 +37,7 @@
                 <a href="#vidro" class="nav-link">Impressão em Vidro</a>
                 <a href="#servicos" class="nav-link">Serviços</a>
                 <a href="#fabrica" class="nav-link">Nossa Fábrica</a>
+                <a href="#afiliados" class="nav-link">Revenda (Renda Extra)</a>
                 <a href="#avaliacoes" class="nav-link">Avaliações</a>
                 <a href="#contato" class="nav-link">Contato</a>
             </nav>
@@ -63,10 +64,10 @@
             <div class="hero-content">
                 <span class="hero-badge">EXCLUSIVO: IMPRESSÃO EM VIDRO E CANVAS</span>
                 <h1 class="hero-title">
-                    Transforme suas paredes com <span class="highlight">arte premium</span> e elegância.
+                    Não vendemos apenas quadros. <span class="highlight">Eternizamos momentos</span> em forma de arte.
                 </h1>
                 <p class="hero-subtitle">
-                    Somos fábrica de quadros personalizados em Embu das Artes, SP. Especialistas em impressão digital direta em vidro temperado, canvas Fine Art, molduras exclusivas e serviço completo de entrega e instalação.
+                    Fábrica de quadros personalizados em Embu das Artes, SP. Transformamos suas fotos de família, recordações de bebês recém-nascidos e memórias afetivas em peças decorativas premium em vidro temperado ou canvas Fine Art.
                 </p>
                 <div class="hero-actions">
                     <a href="https://wa.me/5511968126432?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20um%20quadro%20personalizado." target="_blank" class="btn-cta btn-primary">
@@ -180,6 +181,51 @@
         </div>
     </section>
 
+    <!-- NEW SECTION: HOW TO CUSTOMIZE (Eternizar Momentos) -->
+    <section class="services-section" style="background-color: var(--bg-primary); padding: 80px 24px 20px; border-bottom: 1px solid var(--border-color);">
+        <div class="services-container">
+            <div class="section-title-center" style="margin-bottom: 50px;">
+                <span class="feature-tag" style="display: block; text-align: center; margin-bottom: 10px;">EXCLUSIVIDADE EM MOLDURARIA</span>
+                <h2>Como eternizar o seu momento na parede?</h2>
+                <p>Realizamos simulações digitais e projetos técnicos sob medida. Cuidamos de todo o processo de transformação de fotos pessoais em quadros requintados.</p>
+            </div>
+            
+            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+                <div class="service-box" style="padding: 30px 20px;">
+                    <div class="service-icon" style="width: 50px; height: 50px; margin-bottom: 16px;">
+                        <span style="font-family: var(--font-title); font-size: 20px; font-weight: 800;">1</span>
+                    </div>
+                    <h3 style="font-size: 16px;">Envie a sua Foto</h3>
+                    <p style="font-size: 12.5px;">Basta enviar sua foto (até mesmo do celular) via WhatsApp, informando se prefere impressão em Vidro Temperado ou Canvas.</p>
+                </div>
+
+                <div class="service-box" style="padding: 30px 20px;">
+                    <div class="service-icon" style="width: 50px; height: 50px; margin-bottom: 16px;">
+                        <span style="font-family: var(--font-title); font-size: 20px; font-weight: 800;">2</span>
+                    </div>
+                    <h3 style="font-size: 16px;">Simulação Gratuita</h3>
+                    <p style="font-size: 12.5px;">Fazemos uma projeção digital gratuita do quadro posicionado sobre a imagem da sua própria sala, quarto ou escritório.</p>
+                </div>
+
+                <div class="service-box" style="padding: 30px 20px;">
+                    <div class="service-icon" style="width: 50px; height: 50px; margin-bottom: 16px;">
+                        <span style="font-family: var(--font-title); font-size: 20px; font-weight: 800;">3</span>
+                    </div>
+                    <h3 style="font-size: 16px;">Produção de Alta Costura</h3>
+                    <p style="font-size: 12.5px;">Imprimimos com tintas UV ecológicas de altíssima fidelidade de cores, aplicando molduras de madeira maciça tratada.</p>
+                </div>
+
+                <div class="service-box" style="padding: 30px 20px;">
+                    <div class="service-icon" style="width: 50px; height: 50px; margin-bottom: 16px;">
+                        <span style="font-family: var(--font-title); font-size: 20px; font-weight: 800;">4</span>
+                    </div>
+                    <h3 style="font-size: 16px;">Instalação com Limpeza</h3>
+                    <p style="font-size: 12.5px;">Realizamos a entrega cuidadosa e a fixação técnica alinhada na sua parede sem sujeira (Grande SP e Embu das Artes).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- GALERIA / E-COMMERCE PRODUCTS SECTION -->
     <section id="galeria" class="gallery-section">
         <div class="section-header">
@@ -191,6 +237,7 @@
                 <span class="filter-label font-title">Filtro:</span>
                 <select class="category-select" id="category-select">
                     <option value="todos">Todas as Linhas</option>
+                    <option value="personalizados">Personalizados & Família</option>
                     <option value="vidro">Impressão em Vidro</option>
                     <option value="abstrato">Abstrato Moderno</option>
                     <option value="natureza">Natureza Fine Art</option>
@@ -203,6 +250,7 @@
         <div class="tabs-container">
             <div class="tabs-bar" id="tabs-bar">
                 <button class="tab-btn active" data-filter="todos">Mais Procurados</button>
+                <button class="tab-btn" data-filter="personalizados">Personalizados & Família</button>
                 <button class="tab-btn" data-filter="vidro">Destaques em Vidro</button>
                 <button class="tab-btn" data-filter="abstrato">Abstratos</button>
                 <button class="tab-btn" data-filter="natureza">Natureza</button>
@@ -212,6 +260,42 @@
 
         <!-- Product Cards Grid with Real Client Photos & Coherent Descriptions -->
         <div class="product-grid" id="product-grid">
+            
+            <!-- Card Novo 1 (Personalizados) -->
+            <div class="product-card" data-category="personalizados">
+                <div class="card-image-wrapper">
+                    <span class="diagonal-badge">Sua Foto</span>
+                    <img src="assets/custom_family.jpg" alt="Quadro Personalizado Foto de Família">
+                </div>
+                <div class="card-info">
+                    <div class="card-title-row">
+                        <h3 class="card-title">Retrato de Família Personalizado</h3>
+                        <span class="card-year">Vidro/Canvas</span>
+                    </div>
+                    <p class="card-desc">Envie sua foto favorita e eternize as melhores memórias com quem você ama em vidro temperado brilhante ou canvas rústico.</p>
+                    <button class="btn-card-action" onclick="openSimulationModal('Retrato de Família Personalizado', 'assets/custom_family.jpg', 'personalizados')">
+                        Simular e Cotar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card Novo 2 (Personalizados) -->
+            <div class="product-card" data-category="personalizados">
+                <div class="card-image-wrapper">
+                    <span class="diagonal-badge">Recém-Nascido</span>
+                    <img src="assets/custom_baby.jpg" alt="Quadro Bebê Recém Nascido">
+                </div>
+                <div class="card-info">
+                    <div class="card-title-row">
+                        <h3 class="card-title">Quadro Lembrança do Bebê</h3>
+                        <span class="card-year">Canvas Fino</span>
+                    </div>
+                    <p class="card-desc">Eternize o nascimento do seu bebê. Perfeito para registrar a foto do hospital ou os primeiros dias em uma tela canvas aconchegante.</p>
+                    <button class="btn-card-action" onclick="openSimulationModal('Quadro Lembrança do Bebê', 'assets/custom_baby.jpg', 'personalizados')">
+                        Simular e Cotar
+                    </button>
+                </div>
+            </div>
             
             <!-- Card 1 (Natureza / Animais) -->
             <div class="product-card" data-category="natureza">
@@ -676,6 +760,45 @@
             </div>
         </div>
     </div>
+
+    <!-- NEW SECTION: AFFILIATES PROGRAM (REVENDA & RENDA EXTRA) -->
+    <section id="afiliados" class="vidro-feature" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 100px 24px;">
+        <div class="vidro-container" style="grid-template-columns: 1fr 1.1fr;">
+            <div class="vidro-image" style="box-shadow: 0 20px 40px rgba(0,0,0,0.7); aspect-ratio: 1.2;">
+                <img src="assets/foto_1.jpg" alt="Produção e Envios Pendure e Pronto">
+                <div class="card-caption" style="position: absolute; bottom: 0; width: 100%;">Fábrica Parceira - Você vende, nós produzimos e entregamos.</div>
+            </div>
+            <div class="vidro-content">
+                <span class="feature-tag">OPORTUNIDADE DE PARCERIA</span>
+                <h2>Programa de Revendedores e Afiliados</h2>
+                <p>
+                    Quer faturar uma excelente renda extra recomendando nossos quadros decorativos premium sem precisar investir em estoque, espaço ou logística? Nós criamos uma estrutura para você vender direto do seu celular!
+                </p>
+                <p style="margin-top: -15px; color: var(--text-secondary); font-size: 14px;">
+                    Perfeito para mamães, criadores de conteúdo e decoradores. Disponibilizamos um drive completo com vídeos virais e simulações para você postar e vender nas suas redes.
+                </p>
+                <ul class="feature-list" style="margin-bottom: 30px; margin-top: 15px;">
+                    <li>
+                        <strong>Comissão Direta de 20%:</strong> Ganhe de R$ 40,00 a mais de R$ 120,00 sobre o valor de cada quadro faturado em sua indicação.
+                    </li>
+                    <li>
+                        <strong>Estoque e Logística Zero:</strong> Você não se preocupa com nada. Nossa fábrica cuida de toda a impressão, embalagem de alta segurança e entrega/instalação.
+                    </li>
+                    <li>
+                        <strong>Materiais Prontos:</strong> Acesso imediato a drives de mídias com vídeos de unboxing, quadros na parede e depoimentos de clientes.
+                    </li>
+                    <li>
+                        <strong>Foco Social (Mamães Solo):</strong> Oferecemos treinamento simplificado de divulgação orgânica para você conciliar com os cuidados dos seus filhos.
+                    </li>
+                </ul>
+                <div class="feature-cta-row">
+                    <a href="https://wa.me/5511968126432?text=Olá!%20Gostaria%20de%20saber%20mais%20detalhes%20sobre%20como%20funciona%20o%20Programa%20de%20Afiliados%20da%20Pendure%20e%20Pronto." target="_blank" class="btn-cta btn-primary" style="background-color: #25d366; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);">
+                        Quero Ser Revendedor(a)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- CONTACT & ADDRESS MAP SECTION -->
     <section id="contato" class="contact-section">
