@@ -1767,10 +1767,10 @@ img {
 /* Human Silhouette Scale Reference (1.70m) */
 .ia-person-silhouette {
     position: absolute;
-    bottom: 2%;
-    left: 12%;
-    height: 60%;
-    width: 14%;
+    bottom: 0%;
+    left: 10%;
+    height: 64%;
+    width: auto;
     pointer-events: none;
     z-index: 4;
     transition: opacity 0.3s ease;
@@ -1780,7 +1780,17 @@ img {
     justify-content: flex-end;
 }
 
+.ia-person-img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    filter: contrast(1.05) brightness(0.95);
+}
+
 .ia-silhouette-badge {
+    position: absolute;
+    top: 6px;
     background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -1789,14 +1799,13 @@ img {
     font-weight: 700;
     padding: 2px 8px;
     border-radius: 10px;
-    margin-bottom: 6px;
     white-space: nowrap;
 }
 
 /* Wall Frame Container placed above sofa */
 .ia-frame-container {
     position: absolute;
-    top: 35%;
+    top: 41%;
     left: 50%;
     transform: translate(-50%, -50%);
     transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
