@@ -1770,26 +1770,20 @@ img {
     top: 36%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     background-color: #000;
+    overflow: hidden;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
-.ia-frame-container.frame-sem {
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-.ia-frame-container.frame-filete {
-    border: 6px solid #111;
-    outline: 1px solid #333;
-}
-
-.ia-frame-container.frame-madeira {
-    border: 10px solid #7c5234;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.7), inset 0 0 10px rgba(0,0,0,0.4);
+.ia-frame-container:active {
+    cursor: grabbing;
 }
 
 .ia-frame-img {
@@ -1797,6 +1791,33 @@ img {
     height: 100%;
     object-fit: cover;
     display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: auto;
+    transition: transform 0.05s linear;
+}
+
+.ia-drag-hint {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 12px;
+    pointer-events: none;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    z-index: 5;
+}
+
+.ia-frame-container:hover .ia-drag-hint {
+    opacity: 1;
 }
 
 /* Glass Shine Reflection Overlay */

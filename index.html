@@ -236,6 +236,7 @@
                 
                 <!-- Dynamic Wall Frame above Sofa -->
                 <div class="ia-frame-container frame-sem material-vidro" id="ia-wall-frame" style="width: 38%; height: 38%;">
+                    <span class="ia-drag-hint">✋ Arraste a foto para enquadrar</span>
                     <img src="assets/custom_family.jpg" alt="Sua Foto na Parede" class="ia-frame-img" id="ia-preview-img">
                     <div class="ia-glass-shine"></div>
                     <span class="ia-size-badge" id="ia-size-badge">Tamanho Real: 50 x 70 cm</span>
@@ -272,6 +273,20 @@
                             <img src="assets/foto_13.jpg" alt="Árvore da Vida">
                         </button>
                     </div>
+                </div>
+
+                <!-- Zoom & Framing Controls -->
+                <div class="ia-option-group" style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: var(--border-radius-sm); border: 1px solid var(--border-color); margin-bottom: 24px;">
+                    <div class="ia-option-title" style="margin-bottom: 8px;">
+                        <span>🔍 Ajustar Enquadramento (Zoom):</span>
+                        <button type="button" style="background: none; border: none; color: var(--accent-primary); font-size: 11px; cursor: pointer; text-decoration: underline;" onclick="resetIAPhotoTransform()">🔄 Recentralizar Foto</button>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 12px; color: var(--text-secondary);">-</span>
+                        <input type="range" id="ia-zoom-range" min="1" max="2.5" step="0.05" value="1" style="flex: 1; accent-color: var(--accent-primary); cursor: pointer;" oninput="onIAZoomChange(this.value)">
+                        <span style="font-size: 12px; color: var(--text-secondary);">+</span>
+                    </div>
+                    <p style="font-size: 11px; color: var(--text-secondary); margin-top: 6px; margin-bottom: 0;">💡 Dica: Clique e <strong>arraste a foto com o mouse ou dedo</strong> na parede para centralizar os rostos!</p>
                 </div>
 
                 <!-- Material Selector -->

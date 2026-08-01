@@ -392,7 +392,36 @@ let currentIAFrameVal = 'sem';
 let currentIAFrameAddon = 0;
 let currentIAPhotoSource = 'custom_family.jpg';
 
-// Initialize file upload listener
+// Dragging and Zooming State
+let photoPosX = 0;
+let photoPosY = 0;
+let photoScale = 1;
+let isDraggingPhoto = false;
+let startMouseX = 0;
+let startMouseY = 0;
+
+function applyIAPhotoTransform() {
+    const previewImg = document.getElementById('ia-preview-img');
+    if (previewImg) {
+        previewImg.style.transform = `translate(${photoPosX}px, ${photoPosY}px) scale(${photoScale})`;
+    }
+}
+
+function onIAZoomChange(val) {
+    photoScale = parseFloat(val);
+    applyIAPhotoTransform();
+}
+
+function resetIAPhotoTransform() {
+    photoPosX = 0;
+    photoPosY = 0;
+    photoScale = 1;
+    const zoomRange = document.getElementById('ia-zoom-range');
+    if (zoomRange) zoomRange.value = 1;
+    applyIAPhotoTransform();
+}
+
+// Initialize file upload & drag/touch listeners
 document.addEventListener('DOMContentLoaded', function() {
     const iaPhotoUploadInput = document.getElementById('ia-photo-upload');
     if (iaPhotoUploadInput) {
@@ -405,6 +434,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (previewImg) {
                         previewImg.src = evt.target.result;
                         currentIAPhotoSource = 'Foto Pessoal do Cliente (' + file.name + ')';
+                        resetIAPhotoTransform();
                     }
                     
                     // Clear active thumbnail preset styling
@@ -414,6 +444,53 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Drag and Touch Handlers on the Frame Container
+    const frameContainer = document.getElementById('ia-wall-frame');
+    if (frameContainer) {
+        // Mouse Events
+        frameContainer.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            isDraggingPhoto = true;
+            startMouseX = e.clientX - photoPosX;
+            startMouseY = e.clientY - photoPosY;
+            frameContainer.style.cursor = 'grabbing';
+        });
+
+        window.addEventListener('mousemove', function(e) {
+            if (!isDraggingPhoto) return;
+            photoPosX = e.clientX - startMouseX;
+            photoPosY = e.clientY - startMouseY;
+            applyIAPhotoTransform();
+        });
+
+        window.addEventListener('mouseup', function() {
+            if (isDraggingPhoto) {
+                isDraggingPhoto = false;
+                if (frameContainer) frameContainer.style.cursor = 'grab';
+            }
+        });
+
+        // Touch Events (Mobile / Tablets)
+        frameContainer.addEventListener('touchstart', function(e) {
+            if (e.touches.length === 1) {
+                isDraggingPhoto = true;
+                startMouseX = e.touches[0].clientX - photoPosX;
+                startMouseY = e.touches[0].clientY - photoPosY;
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchmove', function(e) {
+            if (!isDraggingPhoto || e.touches.length !== 1) return;
+            photoPosX = e.touches[0].clientX - startMouseX;
+            photoPosY = e.touches[0].clientY - startMouseY;
+            applyIAPhotoTransform();
+        }, { passive: true });
+
+        window.addEventListener('touchend', function() {
+            isDraggingPhoto = false;
+        });
+    }
 });
 
 function setIAPreviewPhoto(imageSrc, buttonEl) {
@@ -421,6 +498,7 @@ function setIAPreviewPhoto(imageSrc, buttonEl) {
     if (previewImg) {
         previewImg.src = imageSrc;
         currentIAPhotoSource = imageSrc;
+        resetIAPhotoTransform();
     }
     document.querySelectorAll('.ia-thumb-btn').forEach(btn => btn.classList.remove('active'));
     if (buttonEl) buttonEl.classList.add('active');
