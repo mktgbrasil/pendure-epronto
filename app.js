@@ -665,5 +665,14 @@ Vou enviar a imagem original em alta resolução aqui pelo WhatsApp para vocês 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/5511968126432?text=${encodedMessage}`;
     
+    // Meta Pixel Conversion Event Tracking
+    if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+            content_name: 'Simulação IA Quadro',
+            value: parseFloat(priceText.replace('R$', '').replace('.', '').replace(',', '.').trim()) || 320,
+            currency: 'BRL'
+        });
+    }
+    
     window.open(whatsappUrl, '_blank');
 }
